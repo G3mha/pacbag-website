@@ -5,12 +5,10 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import { 
-  Mail, 
   Twitter, 
   Instagram, 
   Github, 
   MapPin, 
-  Send,
   ArrowRight,
   Heart
 } from 'lucide-react'

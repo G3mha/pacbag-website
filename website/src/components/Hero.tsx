@@ -119,10 +119,13 @@ const Hero: React.FC = () => {
               <div className="bg-black rounded-[2.5rem] overflow-hidden">
                 {/* App Screenshot - Full Screen */}
                 <div className="aspect-[9/19.5] relative">
-                  <img
+                  <Image
                     src="/app-screenshot-hero.png"
                     alt="PacBag App Screenshot"
+                    width={375}
+                    height={812}
                     className="w-full h-full object-cover"
+                    priority
                   />
                 </div>
               </div>

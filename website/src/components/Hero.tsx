@@ -64,8 +64,11 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
-            <motion.div
-              className="group cursor-pointer"
+            <motion.a
+              href="https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group cursor-pointer inline-block"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               ref={appStoreTiltRef}
@@ -77,7 +80,7 @@ const Hero: React.FC = () => {
                 height={54}
                 className="rounded-2xl shadow-2xl shadow-purple-500/25"
               />
-            </motion.div>
+            </motion.a>
             
             <motion.button
               className="group border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/5 transition-all duration-300 flex items-center space-x-2"
@@ -89,8 +92,8 @@ const Hero: React.FC = () => {
             </motion.button>
           </motion.div>
 
-          {/* Social Proof */}
-          <motion.div
+          {/* Social Proof - Disabled for now */}
+          {/* <motion.div
             className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-12 text-gray-400"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -108,7 +111,7 @@ const Hero: React.FC = () => {
               </div>
               <span>4.9/5 App Store rating</span>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
 
         {/* Phone Mockup */}

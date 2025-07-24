@@ -9,53 +9,43 @@ import type { FAQ as FAQType } from '@/types'
 const faqs: FAQType[] = [
   {
     id: 1,
-    question: 'How does the AI-powered packing suggestion work?',
-    answer: 'Our AI analyzes your destination&apos;s weather forecast, planned activities, trip duration, and your personal packing history to suggest relevant items. The more you use PacBag, the better it becomes at understanding your preferences and travel style.'
-  },
-  {
-    id: 2,
     question: 'Can I use PacBag offline?',
     answer: 'Yes! PacBag works completely offline once downloaded. Your packing lists are stored locally on your device. When you\'re back online, any changes sync automatically across your devices using iCloud.'
   },
   {
-    id: 3,
+    id: 2,
     question: 'Is my data secure and private?',
-    answer: 'Absolutely. Your data is stored locally on your device and synced through Apple\'s secure iCloud infrastructure. We use end-to-end encryption and never access your personal packing information. Your privacy is our priority.'
+    answer: 'Absolutely. Your data is stored locally on your device and synced through Apple\'s secure iCloud infrastructure. We never access your personal packing information. Your privacy is our priority.'
+  },
+  {
+    id: 3,
+    question: 'Can I customize the packing templates?',
+    answer: 'Yes! You can create custom packing lists and organize items by categories. Add your own items, set quantities, and save lists for future trips.'
   },
   {
     id: 4,
-    question: 'How does family sharing work?',
-    answer: 'With Pro and Family plans, you can share packing lists with family members. Each person can add items, check off packed items, and see real-time updates. Perfect for coordinating group trips or helping family members pack.'
+    question: 'What platforms does PacBag support?',
+    answer: 'PacBag is currently available for iOS (iPhone and iPad) with deep integration into the Apple ecosystem.'
   },
   {
     id: 5,
-    question: 'Can I customize the packing templates?',
-    answer: 'Yes! You can modify existing templates or create completely custom ones. Add your own categories, set default quantities, and save templates for future trips. Pro users get access to advanced template customization features.'
+    question: 'Can I share my packing lists?',
+    answer: 'Yes! You can share your packing lists with others. Perfect for sharing with travel companions or keeping backup copies.'
   },
   {
     id: 6,
-    question: 'What platforms does PacBag support?',
-    answer: 'PacBag is currently available for iOS (iPhone and iPad) with deep integration into the Apple ecosystem. We\'re working on Apple Watch support and considering other platforms based on user demand.'
+    question: 'What\'s included in the free version?',
+    answer: 'PacBag is completely free to use with unlimited trips and items. Create as many packing lists as you need without any restrictions.'
   },
   {
     id: 7,
-    question: 'How accurate are the weather-based suggestions?',
-    answer: 'We use multiple weather data sources and machine learning to provide highly accurate, location-specific suggestions. The system considers not just temperature, but precipitation, humidity, and seasonal factors to recommend appropriate clothing and gear.'
+    question: 'How does syncing work across devices?',
+    answer: 'PacBag uses iCloud to sync your data across all your Apple devices. Your packing lists are automatically updated on all devices signed in with the same Apple ID.'
   },
   {
     id: 8,
-    question: 'Can I export my packing lists?',
-    answer: 'Yes! Pro users can export lists in multiple formats including plain text, markdown, and PDF. Perfect for sharing with travel companions who don\'t use the app or keeping backup copies.'
-  },
-  {
-    id: 9,
-    question: 'What\'s included in the free version?',
-    answer: 'The free version includes up to 3 active trips, basic packing templates, manual item management, and basic weather integration. It\'s perfect for occasional travelers who want to try PacBag\'s core features.'
-  },
-  {
-    id: 10,
-    question: 'How do I cancel my subscription?',
-    answer: 'You can cancel anytime through your iPhone\'s Settings > Your Name > Subscriptions. Your premium features will remain active until the end of your billing period, and you can reactivate anytime without losing your data.'
+    question: 'Can I track the weight of my luggage?',
+    answer: 'Yes! You can add weight information to your bags and items to track total luggage weight and avoid airline fees.'
   }
 ]
 
@@ -180,20 +170,22 @@ const FAQ: React.FC = () => {
               Our support team is here to help you get the most out of PacBag.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
+              <motion.a
+                href="/support"
+                className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Contact Support
-              </motion.button>
-              <motion.button
-                className="border border-white/20 text-white px-6 py-3 rounded-xl font-medium hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+              </motion.a>
+              <motion.a
+                href="/privacy-policy"
+                className="inline-block border border-white/20 text-white px-6 py-3 rounded-xl font-medium hover:bg-white/10 hover:border-white/30 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                View Documentation
-              </motion.button>
+                View Privacy Policy
+              </motion.a>
             </div>
           </div>
         </motion.div>

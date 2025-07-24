@@ -26,26 +26,13 @@ const Footer: React.FC = () => {
     product: [
       { name: 'Features', href: '#features' },
       { name: 'Pricing', href: '#pricing' },
-      { name: 'Download', href: 'https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887' },
-      { name: 'Roadmap', href: '#roadmap' }
+      { name: 'Download', href: 'https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887' }
     ],
     support: [
-      { name: 'Help Center', href: '#help' },
-      { name: 'Contact Us', href: '#contact' },
-      { name: 'Bug Reports', href: '#bugs' },
-      { name: 'Feature Requests', href: '#features-request' }
-    ],
-    company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Blog', href: '#blog' },
-      { name: 'Careers', href: '#careers' },
-      { name: 'Press Kit', href: '#press' }
+      { name: 'Contact Us', href: '/support' }
     ],
     legal: [
-      { name: 'Privacy Policy', href: '/privacy-policy.html' },
-      { name: 'Terms of Service', href: '#terms' },
-      { name: 'Cookie Policy', href: '#cookies' },
-      { name: 'GDPR', href: '#gdpr' }
+      { name: 'Privacy Policy', href: '/privacy-policy' }
     ]
   }
 
@@ -94,35 +81,6 @@ const Footer: React.FC = () => {
               </div>
             </motion.div>
 
-            {/* Newsletter */}
-            <motion.div
-              className="mb-8"
-              initial={{ opacity: 0, x: -20 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h4 className="text-white font-semibold mb-4">Stay Updated</h4>
-              <p className="text-gray-400 text-sm mb-4">
-                Get travel tips and PacBag updates delivered to your inbox.
-              </p>
-              <div className="flex space-x-2">
-                <div className="flex-1 relative">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
-                  />
-                  <Mail className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
-                </div>
-                <motion.button
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center space-x-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Send className="w-4 h-4" />
-                </motion.button>
-              </div>
-            </motion.div>
 
             {/* Social Links */}
             <motion.div
@@ -130,16 +88,18 @@ const Footer: React.FC = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <h4 className="text-white font-semibold mb-4">Follow Us</h4>
+              <h4 className="text-white font-semibold mb-4">Follow the Developer</h4>
               <div className="flex space-x-4">
                 {[
-                  { icon: Twitter, href: '#', label: 'Twitter' },
-                  { icon: Instagram, href: '#', label: 'Instagram' },
-                  { icon: Github, href: '#', label: 'GitHub' },
+                  { icon: Github, href: 'https://github.com/g3mha/', label: 'GitHub' },
+                  { icon: Instagram, href: 'https://www.instagram.com/enriccogemha/', label: 'Instagram' },
+                  { icon: Twitter, href: 'https://x.com/gemhadventures', label: 'Twitter' },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -215,17 +175,6 @@ const Footer: React.FC = () => {
                   className="rounded-lg"
                 />
               </motion.a>
-              <div className="text-gray-400 text-sm">
-                <div className="flex items-center space-x-1">
-                  <span>4.9</span>
-                  <div className="flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <div key={i} className="w-3 h-3 bg-yellow-400 rounded-full" />
-                    ))}
-                  </div>
-                  <span>(2.5K reviews)</span>
-                </div>
-              </div>
             </div>
 
             <div className="flex items-center space-x-6 text-gray-400 text-sm">

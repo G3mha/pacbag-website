@@ -2,11 +2,11 @@ import Hero from '@/components/Hero'
 import Navbar from '@/components/Navbar'
 import Features from '@/components/Features'
 import ProductDemo from '@/components/ProductDemo'
-import Stats from '@/components/Stats'
+// import Stats from '@/components/Stats'
 // import Testimonials from '@/components/Testimonials'
 import Pricing from '@/components/Pricing'
 import FAQ from '@/components/FAQ'
-import CTA from '@/components/CTA'
+// import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -16,11 +16,11 @@ export default function Home() {
       <Hero />
       <Features />
       <ProductDemo />
-      <Stats />
+      {/* <Stats /> */}
       {/* <Testimonials /> */}
       <Pricing />
       <FAQ />
-      <CTA />
+      {/* <CTA /> */}
       <Footer />
     </main>
   )

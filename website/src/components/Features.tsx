@@ -4,39 +4,26 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { 
-  Brain, 
   Cloud, 
   Smartphone, 
-  Users, 
   MapPin, 
   Clock, 
   Shield, 
-  Zap, 
-  Heart 
+  Zap
 } from 'lucide-react'
 import type { Feature } from '@/types'
 
 const features: Feature[] = [
   {
-    icon: Brain,
-    title: 'AI-Powered Suggestions',
-    description: 'Smart recommendations based on your destination, weather, and travel history.',
-    highlight: true
-  },
-  {
     icon: Cloud,
     title: 'Cloud Sync',
     description: 'Access your packing lists across all devices with seamless synchronization.',
+    highlight: true
   },
   {
     icon: Smartphone,
     title: 'Native iOS Experience',
     description: 'Built specifically for iOS with intuitive gestures and smooth animations.',
-  },
-  {
-    icon: Users,
-    title: 'Family Sharing',
-    description: 'Share packing lists with family members and collaborate on group trips.',
   },
   {
     icon: MapPin,
@@ -57,12 +44,6 @@ const features: Feature[] = [
     icon: Zap,
     title: 'Lightning Fast',
     description: 'Optimized performance ensures smooth experience even with large lists.',
-  },
-  {
-    icon: Heart,
-    title: 'Apple Ecosystem',
-    description: 'Deep integration with iOS, Shortcuts, and Apple Watch support.',
-    highlight: true
   }
 ]
 
@@ -178,13 +159,16 @@ const Features: React.FC = () => {
           <p className="text-gray-400 mb-6">
             Ready to revolutionize your packing experience?
           </p>
-          <motion.button
-            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-2xl shadow-purple-500/25"
+          <motion.a
+            href="https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-2xl shadow-purple-500/25"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Get Started Free
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

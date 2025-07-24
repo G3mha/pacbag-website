@@ -112,7 +112,10 @@ const CTA: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            <motion.button
+            <motion.a
+              href="https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center space-x-3 shadow-2xl shadow-purple-500/30"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -120,7 +123,7 @@ const CTA: React.FC = () => {
               <Download className="w-6 h-6" />
               <span>Download Free</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </motion.button>
+            </motion.a>
             
             <motion.button
               className="group border-2 border-white/20 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/10 hover:border-white/40 transition-all duration-300 flex items-center space-x-3"

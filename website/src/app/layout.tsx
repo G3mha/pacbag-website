@@ -108,8 +108,8 @@ export const metadata: Metadata = {
   referrer: "origin-when-cross-origin",
   appLinks: {
     ios: {
-      url: "https://apps.apple.com/app/pacbag",
-      app_store_id: "YOUR_APP_STORE_ID",
+      url: "https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887",
+      app_store_id: "6749021887",
     },
     web: {
       url: "https://pacbag.app",
@@ -169,7 +169,7 @@ export default function RootLayout({
                 "Smart reminders",
               ],
               url: "https://pacbag.app",
-              downloadUrl: "https://apps.apple.com/app/pacbag",
+              downloadUrl: "https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887",
             }),
           }}
         />

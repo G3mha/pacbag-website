@@ -126,29 +126,16 @@ const Hero: React.FC = () => {
             {/* Phone Frame */}
             <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
               <div className="bg-black rounded-[2.5rem] overflow-hidden">
-                {/* Screen Content */}
-                <div className="aspect-[9/19.5] bg-gradient-to-b from-purple-900/50 to-black p-6 relative">
-                  {/* Status Bar */}
-                  <div className="flex justify-between items-center text-white text-sm mb-8">
-                    <span>9:41</span>
-                    <div className="flex space-x-1">
-                      <div className="w-4 h-2 bg-white rounded-sm"></div>
-                      <div className="w-4 h-2 bg-white rounded-sm"></div>
-                      <div className="w-4 h-2 bg-white/50 rounded-sm"></div>
-                    </div>
-                  </div>
-
-                  {/* App Screenshot */}
-                  <div className="relative overflow-hidden rounded-t-3xl">
-                    <motion.img
-                      src="/app-screenshot-hero.png"
-                      alt="PacBag App Screenshot"
-                      className="w-full h-auto object-cover"
-                      initial={{ opacity: 0, scale: 1.1 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 1.5, duration: 0.8 }}
-                    />
-                  </div>
+                {/* App Screenshot - Full Screen */}
+                <div className="aspect-[9/19.5] relative">
+                  <motion.img
+                    src="/app-screenshot-hero.png"
+                    alt="PacBag App Screenshot"
+                    className="w-full h-full object-cover"
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1.5, duration: 0.8 }}
+                  />
                 </div>
               </div>
             </div>

@@ -119,13 +119,10 @@ const Hero: React.FC = () => {
               <div className="bg-black rounded-[2.5rem] overflow-hidden">
                 {/* App Screenshot - Full Screen */}
                 <div className="aspect-[9/19.5] relative">
-                  <motion.img
+                  <img
                     src="/app-screenshot-hero.png"
                     alt="PacBag App Screenshot"
                     className="w-full h-full object-cover"
-                    initial={{ opacity: 0, scale: 1.1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 1.5, duration: 0.8 }}
                   />
                 </div>
               </div>

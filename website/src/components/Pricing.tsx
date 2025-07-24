@@ -147,8 +147,11 @@ const Pricing: React.FC = () => {
                 </div>
 
                 {/* CTA Button */}
-                <motion.button
-                  className={`w-full py-4 px-6 rounded-2xl font-semibold transition-all duration-300 ${
+                <motion.a
+                  href="https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-4 px-6 rounded-2xl font-semibold transition-all duration-300 text-center block ${
                     plan.popular
                       ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 shadow-lg shadow-purple-500/25'
                       : 'border border-white/20 text-white hover:bg-white/10 hover:border-white/30'
@@ -157,7 +160,7 @@ const Pricing: React.FC = () => {
                   whileTap={{ scale: 0.98 }}
                 >
                   {plan.cta}
-                </motion.button>
+                </motion.a>
 
                 {/* Extra Info */}
                 <motion.p

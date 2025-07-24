@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
     product: [
       { name: 'Features', href: '#features' },
       { name: 'Pricing', href: '#pricing' },
-      { name: 'Download', href: '#download' },
+      { name: 'Download', href: 'https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887' },
       { name: 'Roadmap', href: '#roadmap' }
     ],
     support: [
@@ -208,8 +208,11 @@ const Footer: React.FC = () => {
         >
           <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
             <div className="flex items-center space-x-4">
-              <motion.div
-                className="cursor-pointer"
+              <motion.a
+                href="https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer block"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 ref={footerAppStoreTiltRef}
@@ -221,7 +224,7 @@ const Footer: React.FC = () => {
                   height={45}
                   className="rounded-lg"
                 />
-              </motion.div>
+              </motion.a>
               <div className="text-gray-400 text-sm">
                 <div className="flex items-center space-x-1">
                   <span>4.9</span>

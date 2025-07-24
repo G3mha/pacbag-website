@@ -2,19 +2,11 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Star, Users } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import { useTilt } from '@/hooks/useTilt'
 
 const Hero: React.FC = () => {
-  const appStoreTiltRef = useTilt({
-    max: 20,
-    perspective: 1000,
-    scale: 1.08,
-    speed: 400,
-    glare: true,
-    'max-glare': 0.3,
-  })
 
   const phoneTiltRef = useTilt({
     max: 10,
@@ -71,7 +63,6 @@ const Hero: React.FC = () => {
               className="group cursor-pointer inline-block"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              ref={appStoreTiltRef}
             >
               <Image
                 src="/appstore.png"

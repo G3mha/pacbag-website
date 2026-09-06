@@ -148,11 +148,6 @@ export default function RootLayout({
                 price: "0",
                 priceCurrency: "USD",
               },
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.9",
-                ratingCount: "2500",
-              },
               author: {
                 "@type": "Person",
                 name: "Enricco Gemha",

@@ -1,85 +1,66 @@
-# PacBag Website
+# pacbag.app
 
-## Overview
+The landing page for [PacBag](https://github.com/G3mha/pacbag-ios), an iOS packing list app. It's a Next.js site: one marketing page plus the three pages Apple requires a listing to link to.
 
-This website serves as the official promotional platform for **PacBag** - the Digital Travel Packing Assistant iOS app. It's designed to showcase the app's features, benefits, and provide potential users with comprehensive information about how PacBag can transform their travel packing experience.
+Live at [pacbag.app](https://pacbag.app), deployed from `main` by Vercel.
 
-## Purpose
+## Pages
 
-The PacBag website acts as a marketing and information hub to:
+| Route | What it is |
+|---|---|
+| `/` | The landing page — what the app does, a walkthrough, an FAQ, App Store link |
+| `/support` | Contact details and answers to the questions people actually ask |
+| `/privacy-policy` | Required by App Store Review |
+| `/labels-markings` | Trader information, required by the EU Digital Services Act |
 
-- **Introduce** the PacBag app to potential users
-- **Demonstrate** key features through visual presentations and interactive elements
-- **Convert** visitors into app downloads through compelling content
-- **Educate** users about the app's capabilities and benefits
-- **Build Trust** by showcasing the app's privacy-focused approach and user testimonials
+## Running it
 
-## About PacBag App
+```bash
+cd website
+npm install
+npm run dev
+```
 
-PacBag is a SwiftUI-based iOS application that revolutionizes travel preparation by providing a digital packing assistant. It helps travelers:
+Then open http://localhost:3000.
 
-- Create and manage multiple trips with destinations and dates
-- Organize items into virtual bags and suitcases
-- Track packing progress with visual indicators
-- Never forget essential items with smart reminders
-- Monitor luggage weight to avoid airline fees
-- Sync packing lists across all Apple devices via iCloud
+```bash
+npm run build    # production build
+npm run lint     # eslint
+```
 
-## Website Content Structure
+## Layout
 
-### Landing Page
-- Hero section with app screenshots and key value proposition
-- Feature highlights with visual demonstrations
-- Benefits section focusing on stress-free travel
-- Call-to-action buttons for App Store download
+```
+website/
+├── src/app/
+│   ├── layout.tsx            Metadata, Open Graph tags, JSON-LD
+│   ├── page.tsx              Assembles the landing page sections
+│   ├── globals.css           Tailwind entry point
+│   └── support/ privacy-policy/ labels-markings/
+├── src/components/           One file per landing page section
+├── src/hooks/useTilt.ts      vanilla-tilt wrapper for the phone mockup
+└── public/                   Icon, App Store badge, screenshot, OG image
+```
 
-### Features Section
-- Detailed breakdown of app capabilities
-- Interactive demos or GIFs showing app in action
-- Comparison with traditional packing methods
+Next.js 15 with the App Router, React 19, Tailwind 4, framer-motion for the scroll animations, lucide-react for icons. No CMS and no backend — every string is in the component that renders it.
 
-### Privacy & Security
-- Explanation of data storage in user's iCloud
-- Zero server architecture benefits
-- Privacy-first approach messaging
+## Keeping it honest
 
-### Download Section
-- Direct App Store links
-- QR code for mobile scanning
-- System requirements (iOS 17+)
+The copy on this site should only describe things the app does. That sounds obvious, but earlier versions of this page advertised weather-based suggestions, AI packing recommendations, family sharing, 100,000 downloads and a 4.9 star rating. None of it was true; the app has no server and shipped with one review.
 
-## Target Audience
+So before adding a claim here, check it against the app. Two places make this easy to get wrong:
 
-- Frequent travelers (business and leisure)
-- Families planning vacations
-- Digital nomads and remote workers
-- Anyone who struggles with packing organization
-- Privacy-conscious users who prefer local data storage
+- **`layout.tsx`** holds a JSON-LD `featureList` that search engines read. It's easy to edit the visible copy and leave that block advertising something else.
+- **`DEVELOPMENT.md`** in the app repo has a "Not built" list. Nothing on it belongs on this page.
 
-## Key Marketing Messages
+## Deploying
 
-1. **"Never Forget Anything Again"** - Emphasizing complete packing confidence
-2. **"Your Digital Packing Companion"** - Positioning as a helpful travel assistant
-3. **"Pack Smart, Travel Light"** - Focus on organization and weight management
-4. **"100% Private, 100% Yours"** - Highlighting privacy with iCloud-only storage
+Push to `main`. Vercel builds and promotes it.
 
-## Technical Integration
+## Contact
 
-The website should include:
-- App Store badges and links
-- Meta tags for social sharing
-- Analytics to track conversion rates
-- Responsive design for all devices
-- Fast loading times to reduce bounce rates
+Enricco Gemha — me@enriccogemha.dev
 
-## Success Metrics
+## License
 
-- Visitor to App Store click-through rate
-- Time spent on site
-- Feature section engagement
-- Mobile vs desktop traffic analysis
-- Geographic distribution of visitors
-
----
-
-*This website is the digital storefront for PacBag - transforming the way people pack for travel, one trip at a time.*
+© 2025 Enricco Gemha. All rights reserved.

@@ -8,6 +8,12 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const APP_STORE_URL =
+  "https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887";
+
+const DESCRIPTION =
+  "A packing list app for iPhone and iPad. List your bags, put items in them, and check them off as you pack. PacBag adds up the weight of each bag so you know before the airport.";
+
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#a855f7" },
@@ -22,35 +28,29 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://pacbag.app"),
   title: {
-    default: "PacBag - Smart Travel Packing Lists",
+    default: "PacBag - Travel Packing Lists for iOS",
     template: "%s | PacBag",
   },
-  description:
-    "The digital twin of your travel luggage. PacBag helps you keep track of every item in your bag, ensuring you never leave anything behind.",
+  description: DESCRIPTION,
   keywords: [
-    "travel packing",
     "packing list",
-    "travel app",
+    "travel packing",
+    "luggage weight",
+    "packing checklist",
+    "trip planner",
     "iOS app",
-    "smart packing",
-    "travel organizer",
-    "vacation planner",
-    "business travel",
-    "family travel",
-    "packing assistant",
   ],
   authors: [{ name: "Enricco Gemha" }],
   creator: "Enricco Gemha",
-  publisher: "PacBag",
+  publisher: "Enricco Gemha",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    title: "PacBag - Smart Travel Packing Lists",
-    description:
-      "Your luggage's digital twin. Track every item in your bag and never leave anything behind.",
+    title: "PacBag - Travel Packing Lists for iOS",
+    description: DESCRIPTION,
     url: "https://pacbag.app",
     siteName: "PacBag",
     images: [
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "PacBag - Smart Travel Packing Lists",
+        alt: "PacBag - travel packing lists for iOS",
       },
     ],
     locale: "en_US",
@@ -66,11 +66,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PacBag - Smart Travel Packing Lists",
-    description:
-      "Your luggage's digital twin. Track every item in your bag and never leave anything behind.",
-    images: ["/twitter-image.png"],
-    creator: "@pacbagapp",
+    title: "PacBag - Travel Packing Lists for iOS",
+    description: DESCRIPTION,
+    images: ["/og-image.png"],
+    creator: "@gemhadventures",
   },
   robots: {
     index: true,
@@ -88,9 +87,7 @@ export const metadata: Metadata = {
       { url: "/icon-raw.png", sizes: "32x32", type: "image/png" },
       { url: "/icon-raw.png", sizes: "16x16", type: "image/png" },
     ],
-    apple: [
-      { url: "/icon-raw.png", sizes: "180x180", type: "image/png" },
-    ],
+    apple: [{ url: "/icon-raw.png", sizes: "180x180", type: "image/png" }],
     other: [
       {
         rel: "mask-icon",
@@ -108,7 +105,7 @@ export const metadata: Metadata = {
   referrer: "origin-when-cross-origin",
   appLinks: {
     ios: {
-      url: "https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887",
+      url: APP_STORE_URL,
       app_store_id: "6749021887",
     },
     web: {
@@ -116,6 +113,40 @@ export const metadata: Metadata = {
       should_fallback: true,
     },
   },
+};
+
+// Search engines read this. Every entry in featureList has to be something the
+// app actually ships -- see "Keeping it honest" in the README.
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "PacBag",
+  applicationCategory: "TravelApplication",
+  operatingSystem: "iOS 18.5",
+  description: DESCRIPTION,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  author: {
+    "@type": "Person",
+    name: "Enricco Gemha",
+  },
+  datePublished: "2025-07-24",
+  softwareVersion: "1.0",
+  screenshot: "https://pacbag.app/app-screenshot-hero.png",
+  featureList: [
+    "Multiple bags and sub-bags per trip",
+    "Weight tracking against a per-bag limit",
+    "Eight ready-made packing lists, plus your own",
+    "Custom categories and subcategories",
+    "Local reminders before a trip",
+    "Export a trip as text, Markdown or rich text",
+    "iCloud sync across your own devices",
+  ],
+  url: "https://pacbag.app",
+  downloadUrl: APP_STORE_URL,
 };
 
 export default function RootLayout({
@@ -126,61 +157,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "PacBag",
-              applicationCategory: "TravelApplication",
-              operatingSystem: "iOS",
-              description:
-                "The digital twin of your travel luggage. PacBag helps you keep track of every item in your bag, ensuring you never leave anything behind.",
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "USD",
-              },
-              author: {
-                "@type": "Person",
-                name: "Enricco Gemha",
-              },
-              datePublished: "2024-01-01",
-              softwareVersion: "1.0",
-              screenshot: "https://pacbag.app/screenshot.png",
-              featureList: [
-                "AI-powered packing suggestions",
-                "Weather-based recommendations",
-                "Cloud sync across devices",
-                "Family sharing",
-                "Custom packing templates",
-                "Smart reminders",
-              ],
-              url: "https://pacbag.app",
-              downloadUrl: "https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887",
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
       <body className="antialiased font-sans bg-black text-white">
         {children}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Smooth scroll polyfill
-              if (!('scrollBehavior' in document.documentElement.style)) {
-                import('https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js');
-              }
-            `,
-          }}
-        />
       </body>
     </html>
   );

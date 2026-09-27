@@ -3,50 +3,58 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Plus, Minus, HelpCircle } from 'lucide-react'
+import { Plus, Minus } from 'lucide-react'
 import type { FAQ as FAQType } from '@/types'
 
 const faqs: FAQType[] = [
   {
     id: 1,
-    question: 'Can I use PacBag offline?',
-    answer: 'Yes! PacBag works completely offline once downloaded. Your packing lists are stored locally on your device. When you\'re back online, any changes sync automatically across your devices using iCloud.'
+    question: 'Does it suggest what to pack?',
+    answer:
+      'No. PacBag does not look up the weather, read your destination, or guess what you need. It comes with eight ready-made lists you can start from and edit, and you can save your own. Everything else you type in.',
   },
   {
     id: 2,
-    question: 'Is my data secure and private?',
-    answer: 'Absolutely. Your data is stored locally on your device and synced through Apple\'s secure iCloud infrastructure. We never access your personal packing information. Your privacy is our priority.'
+    question: 'Does it work offline?',
+    answer:
+      'Yes. Your lists are stored on the device, so the app works with no signal at all. Changes sync to your other devices the next time you are online.',
   },
   {
     id: 3,
-    question: 'Can I customize the packing templates?',
-    answer: 'Yes! You can create custom packing lists and organize items by categories. Add your own items, set quantities, and save lists for future trips.'
+    question: 'Where does my data go?',
+    answer:
+      'Into your own iCloud account, and nowhere else. There is no PacBag server, no account to create and no analytics. Nobody but you can read your lists, including the developer.',
   },
   {
     id: 4,
-    question: 'What platforms does PacBag support?',
-    answer: 'PacBag is currently available for iOS (iPhone and iPad) with deep integration into the Apple ecosystem.'
+    question: 'How does syncing work?',
+    answer:
+      'Through CloudKit, using the Apple ID you are already signed in to. Any device on the same Apple ID picks up your trips. Sync is not instant — give it a moment after a change.',
   },
   {
     id: 5,
-    question: 'Can I share my packing lists?',
-    answer: 'Yes! You can share your packing lists with others. Perfect for sharing with travel companions or keeping backup copies.'
+    question: 'Can I share a list with someone?',
+    answer:
+      'You can export a trip or a single bag as plain text, Markdown or rich text, then send it however you like. It is a copy, not a shared document — the other person cannot edit yours, and there is no collaborative list.',
   },
   {
     id: 6,
-    question: 'What\'s included in the free version?',
-    answer: 'PacBag is completely free to use with unlimited trips and items. Create as many packing lists as you need without any restrictions.'
+    question: 'Can I track how much a bag weighs?',
+    answer:
+      'Yes, that is the main reason the app exists. Give each bag a limit, put a weight on each item, and the bag total updates as you pack. Sub-bags count towards the bag holding them.',
   },
   {
     id: 7,
-    question: 'How does syncing work across devices?',
-    answer: 'PacBag uses iCloud to sync your data across all your Apple devices. Your packing lists are automatically updated on all devices signed in with the same Apple ID.'
+    question: 'What do I need to run it?',
+    answer:
+      'An iPhone or iPad on iOS 18.5 or later. There is no Mac, Apple Watch or Android version.',
   },
   {
     id: 8,
-    question: 'Can I track the weight of my luggage?',
-    answer: 'Yes! You can add weight information to your bags and items to track total luggage weight and avoid airline fees.'
-  }
+    question: 'What does it cost?',
+    answer:
+      'Nothing. No purchases, no subscription, no ads.',
+  },
 ]
 
 const FAQ: React.FC = () => {
@@ -78,27 +86,9 @@ const FAQ: React.FC = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <motion.div
-            className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <HelpCircle className="w-4 h-4 text-blue-400" />
-            <span className="text-sm text-blue-300">FAQ</span>
-          </motion.div>
-
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-            Questions?
-            <br />
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              We&apos;ve got answers
-            </span>
+          <h2 className="text-5xl md:text-6xl font-bold text-white">
+            Questions
           </h2>
-          
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Everything you need to know about PacBag and how it can transform your travel packing experience.
-          </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -113,6 +103,7 @@ const FAQ: React.FC = () => {
               >
                 <button
                   onClick={() => toggleFAQ(faq.id)}
+                  aria-expanded={openFAQ === faq.id}
                   className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors duration-200"
                 >
                   <span className="text-lg font-semibold text-white pr-8">
@@ -130,7 +121,7 @@ const FAQ: React.FC = () => {
                     )}
                   </motion.div>
                 </button>
-                
+
                 <AnimatePresence>
                   {openFAQ === faq.id && (
                     <motion.div
@@ -141,11 +132,9 @@ const FAQ: React.FC = () => {
                       className="overflow-hidden"
                     >
                       <div className="px-6 pb-6">
-                        <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-xl p-4 border border-purple-500/20">
-                          <p className="text-gray-300 leading-relaxed">
-                            {faq.answer}
-                          </p>
-                        </div>
+                        <p className="text-gray-300 leading-relaxed">
+                          {faq.answer}
+                        </p>
                       </div>
                     </motion.div>
                   )}
@@ -155,39 +144,19 @@ const FAQ: React.FC = () => {
           </div>
         </div>
 
-        {/* Still Have Questions */}
         <motion.div
-          className="text-center mt-20"
+          className="text-center mt-16"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.5 }}
         >
-          <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-500/20 rounded-3xl p-8">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Still have questions?
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Our support team is here to help you get the most out of PacBag.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href="/support"
-                className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Contact Support
-              </motion.a>
-              <motion.a
-                href="/privacy-policy"
-                className="inline-block border border-white/20 text-white px-6 py-3 rounded-xl font-medium hover:bg-white/10 hover:border-white/30 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View Privacy Policy
-              </motion.a>
-            </div>
-          </div>
+          <p className="text-gray-400">
+            Something else?{' '}
+            <a href="/support" className="text-purple-400 hover:text-purple-300 underline underline-offset-4">
+              Get in touch
+            </a>
+            . PacBag is made by one person, so the reply comes from him.
+          </p>
         </motion.div>
       </div>
     </section>

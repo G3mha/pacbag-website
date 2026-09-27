@@ -5,9 +5,9 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import { useTilt } from '@/hooks/useTilt'
+import AppStoreButton from '@/components/AppStoreButton'
 
 const Hero: React.FC = () => {
-
   const phoneTiltRef = useTilt({
     max: 10,
     perspective: 1500,
@@ -16,6 +16,10 @@ const Hero: React.FC = () => {
     glare: true,
     'max-glare': 0.1,
   })
+
+  const scrollToDemo = () => {
+    document.querySelector('#demo')?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-purple-900/20 to-black">
@@ -27,82 +31,55 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-6 py-32 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Headline */}
           <motion.h1
             className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Pack Smart,
+            Know what&apos;s
             <br />
-            Travel Better
+            in every bag
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            Your luggage&apos;s digital twin. Track every item in your bag, get smart reminders, and never leave anything behind on your travels.
+            List the bags you&apos;re taking, put items in them, and check them off as you pack.
+            PacBag weighs each bag against the limit you set, so you find out you&apos;re
+            over at home instead of at the airport.
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
-            <motion.a
-              href="https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group cursor-pointer inline-block"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Image
-                src="/appstore.png"
-                alt="Download on the App Store"
-                width={180}
-                height={54}
-                className="rounded-2xl shadow-2xl shadow-purple-500/25"
-              />
-            </motion.a>
-            
+            <AppStoreButton />
+
             <motion.button
+              onClick={scrollToDemo}
               className="group border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-white/5 transition-all duration-300 flex items-center space-x-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>Watch Demo</span>
+              <span>See how it works</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>
 
-          {/* Social Proof - Disabled for now */}
-          {/* <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-12 text-gray-400"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+          <motion.p
+            className="text-gray-500"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.8 }}
           >
-            <div className="flex items-center space-x-2">
-              <Users className="w-5 h-5" />
-              <span>100K+ travelers trust us</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="flex space-x-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400" fill="currentColor" />
-                ))}
-              </div>
-              <span>4.9/5 App Store rating</span>
-            </div>
-          </motion.div> */}
+            Free. No account, no ads, no subscription.
+          </motion.p>
         </div>
 
         {/* Phone Mockup */}
@@ -114,14 +91,12 @@ const Hero: React.FC = () => {
           ref={phoneTiltRef}
         >
           <div className="relative">
-            {/* Phone Frame */}
             <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
               <div className="bg-black rounded-[2.5rem] overflow-hidden">
-                {/* App Screenshot - Full Screen */}
                 <div className="aspect-[9/19.5] relative">
                   <Image
                     src="/app-screenshot-hero.png"
-                    alt="PacBag App Screenshot"
+                    alt="A trip in PacBag, showing its bags and how full each one is"
                     width={375}
                     height={812}
                     className="w-full h-full object-cover"
@@ -131,11 +106,11 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Floating Elements */}
             <motion.div
               className="absolute -top-4 -right-4 bg-green-500 text-white p-2 rounded-full shadow-lg"
               animate={{ y: [-5, 5, -5] }}
               transition={{ repeat: Infinity, duration: 2 }}
+              aria-hidden="true"
             >
               ✓
             </motion.div>
@@ -143,6 +118,7 @@ const Hero: React.FC = () => {
               className="absolute -bottom-4 -left-4 bg-purple-500 text-white p-3 rounded-full shadow-lg"
               animate={{ y: [5, -5, 5] }}
               transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}
+              aria-hidden="true"
             >
               🎒
             </motion.div>

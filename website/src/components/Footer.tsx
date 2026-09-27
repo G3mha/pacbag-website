@@ -4,14 +4,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
-import { 
-  Twitter, 
-  Instagram, 
-  Github, 
-  MapPin, 
-  ArrowRight,
-  Heart
-} from 'lucide-react'
+import AppStoreButton, { APP_STORE_URL } from '@/components/AppStoreButton'
+import { Twitter, Instagram, Github, MapPin, ArrowRight } from 'lucide-react'
 
 const Footer: React.FC = () => {
   const [ref, inView] = useInView({
@@ -23,14 +17,19 @@ const Footer: React.FC = () => {
   const footerLinks = {
     product: [
       { name: 'Features', href: '#features' },
-      { name: 'Pricing', href: '#pricing' },
-      { name: 'Download', href: 'https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887' }
+      { name: 'Price', href: '#pricing' },
+      { name: 'Download', href: APP_STORE_URL }
     ],
     support: [
       { name: 'Contact Us', href: '/support' }
     ],
     legal: [
-      { name: 'Privacy Policy', href: '/privacy-policy' }
+      { name: 'Privacy Policy', href: '/privacy-policy' },
+      { name: 'Labels & Markings', href: '/labels-markings' }
+    ],
+    source: [
+      { name: 'App on GitHub', href: 'https://github.com/G3mha/pacbag-ios' },
+      { name: 'This site on GitHub', href: 'https://github.com/G3mha/pacbag-website' }
     ]
   }
 
@@ -71,11 +70,11 @@ const Footer: React.FC = () => {
                 <span className="text-2xl font-bold text-white">PacBag</span>
               </div>
               <p className="text-gray-400 leading-relaxed mb-6">
-                The digital twin of your travel luggage. Track every item in your bag and never leave anything behind.
+                A packing list app for iPhone and iPad. Keeps track of what is in each bag and what it weighs.
               </p>
               <div className="flex items-center space-x-2 text-gray-400">
                 <MapPin className="w-4 h-4" />
-                <span>Sao Paulo, Brazil</span>
+                <span>São Paulo, Brazil</span>
               </div>
             </motion.div>
 
@@ -157,26 +156,11 @@ const Footer: React.FC = () => {
         >
           <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 lg:space-y-0">
             <div className="flex items-center space-x-4">
-              <motion.a
-                href="https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cursor-pointer block"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Image
-                  src="/appstore.png"
-                  alt="Download on the App Store"
-                  width={150}
-                  height={45}
-                  className="rounded-lg"
-                />
-              </motion.a>
+              <AppStoreButton />
             </div>
 
             <div className="flex items-center space-x-6 text-gray-400 text-sm">
-              <span>iOS 17.0+</span>
+              <span>iOS 18.5+</span>
               <span>•</span>
               <span>iPhone & iPad</span>
             </div>
@@ -194,15 +178,8 @@ const Footer: React.FC = () => {
             © 2025 Enricco Gemha. All rights reserved.
           </div>
           
-          <div className="flex items-center space-x-4 text-gray-400 text-sm">
-            <span>Made with</span>
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-            >
-              <Heart className="w-4 h-4 text-red-400" fill="currentColor" />
-            </motion.div>
-            <span>by Enricco Gemha in Sao Paulo</span>
+          <div className="text-gray-400 text-sm">
+            Built by Enricco Gemha in São Paulo
           </div>
         </motion.div>
       </div>

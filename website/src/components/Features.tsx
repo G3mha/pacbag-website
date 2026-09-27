@@ -3,48 +3,48 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { 
-  Cloud, 
-  Smartphone, 
-  MapPin, 
-  Clock, 
-  Shield, 
-  Zap
-} from 'lucide-react'
+import { Package, Scale, ListChecks, Tag, Bell, Cloud } from 'lucide-react'
 import type { Feature } from '@/types'
 
+// Every entry here has to be something the app actually does today.
 const features: Feature[] = [
   {
+    icon: Package,
+    title: 'Bags inside bags',
+    description:
+      'A packing cube in your suitcase gets its own list. The suitcase still counts everything inside it.',
+  },
+  {
+    icon: Scale,
+    title: 'Weight per bag',
+    description:
+      'Give a bag a limit. Add weights to items as you go and watch how much of it you have left.',
+  },
+  {
+    icon: ListChecks,
+    title: 'Lists to start from',
+    description:
+      'Eight built in, from a business week to a camping trip. Save your own once you have packed it your way.',
+  },
+  {
+    icon: Tag,
+    title: 'Categories you control',
+    description:
+      'Clothes, electronics, toiletries and whatever else you need. Rename them, add subcategories, pick your own icons.',
+  },
+  {
+    icon: Bell,
+    title: 'A reminder before you go',
+    description:
+      'Set one against the trip date. It is a normal iOS notification, scheduled on your phone.',
+  },
+  {
     icon: Cloud,
-    title: 'Cloud Sync',
-    description: 'Access your packing lists across all devices with seamless synchronization.',
-    highlight: true
+    title: 'Your iCloud, no account',
+    description:
+      'Trips sync between your iPhone and iPad through your own Apple ID. There is nothing to sign up for.',
+    highlight: true,
   },
-  {
-    icon: Smartphone,
-    title: 'Native iOS Experience',
-    description: 'Built specifically for iOS with intuitive gestures and smooth animations.',
-  },
-  {
-    icon: MapPin,
-    title: 'Location-Based Lists',
-    description: 'Get location-specific suggestions for activities and weather conditions.',
-  },
-  {
-    icon: Clock,
-    title: 'Smart Reminders',
-    description: 'Never forget important items with intelligent packing reminders.',
-  },
-  {
-    icon: Shield,
-    title: 'Privacy First',
-    description: 'Your data stays private with end-to-end encryption and local storage.',
-  },
-  {
-    icon: Zap,
-    title: 'Lightning Fast',
-    description: 'Optimized performance ensures smooth experience even with large lists.',
-  }
 ]
 
 const Features: React.FC = () => {
@@ -71,33 +71,20 @@ const Features: React.FC = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <motion.div
-            className="inline-flex items-center space-x-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Zap className="w-4 h-4 text-purple-400" />
-            <span className="text-sm text-purple-300">Powerful Features</span>
-          </motion.div>
-
           <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            Everything you need
-            <br />
-            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              in one app
-            </span>
+            What it does
           </h2>
-          
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            PacBag combines intelligent automation with intuitive design to make packing effortless and stress-free.
+
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            No server, no sign-up, and nothing guessing what you should bring. Just a
+            careful list of what you are taking.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
-              key={index}
+              key={feature.title}
               className={`group relative p-8 rounded-2xl border transition-all duration-300 hover:scale-105 ${
                 feature.highlight
                   ? 'bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-purple-500/30 hover:border-purple-400/50'
@@ -107,7 +94,6 @@ const Features: React.FC = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* Highlight Glow */}
               {feature.highlight && (
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300" />
               )}
@@ -124,52 +110,14 @@ const Features: React.FC = () => {
                 <h3 className="text-xl font-semibold text-white mb-3">
                   {feature.title}
                 </h3>
-                
+
                 <p className="text-gray-400 leading-relaxed">
                   {feature.description}
                 </p>
-
-                {/* Hover Arrow */}
-                <motion.div
-                  className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ x: -10 }}
-                  whileHover={{ x: 0 }}
-                >
-                  <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
-                    <motion.div
-                      animate={{ x: [0, 4, 0] }}
-                      transition={{ repeat: Infinity, duration: 1.5 }}
-                    >
-                      →
-                    </motion.div>
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          className="text-center mt-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.5 }}
-        >
-          <p className="text-gray-400 mb-6">
-            Ready to revolutionize your packing experience?
-          </p>
-          <motion.a
-            href="https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-2xl shadow-purple-500/25"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get Started Free
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   )

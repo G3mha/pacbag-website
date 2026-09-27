@@ -5,11 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import type { NavItem } from '@/types'
+import { APP_STORE_URL } from '@/components/AppStoreButton'
 
 const navItems: NavItem[] = [
   { name: 'Features', href: '#features' },
   { name: 'Demo', href: '#demo' },
-  { name: 'Pricing', href: '#pricing' },
+  { name: 'Price', href: '#pricing' },
   { name: 'FAQ', href: '#faq' }
 ]
 
@@ -80,7 +81,10 @@ const Navbar: React.FC = () => {
                 {item.name}
               </motion.button>
             ))}
-            <motion.button
+            <motion.a
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -89,7 +93,7 @@ const Navbar: React.FC = () => {
               whileTap={{ scale: 0.95 }}
             >
               Download
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -128,14 +132,17 @@ const Navbar: React.FC = () => {
                     {item.name}
                   </motion.button>
                 ))}
-                <motion.button
+                <motion.a
+                  href={APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full font-medium hover:from-purple-700 hover:to-pink-700 transition-all duration-200 self-start"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.1 }}
                 >
                   Download
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           )}

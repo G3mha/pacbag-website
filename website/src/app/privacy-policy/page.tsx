@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
               <p className="text-gray-600 mb-2">Your data is protected by:</p>
               <ul className="space-y-2 text-gray-600">
                 <li>• Apple&apos;s iCloud security infrastructure</li>
-                <li>• End-to-end encryption for iCloud data</li>
+                <li>• iCloud data encrypted in transit and at rest, and end-to-end if you have Advanced Data Protection turned on</li>
                 <li>• Your device passcode/Face ID/Touch ID</li>
                 <li>• iOS app sandboxing</li>
               </ul>

@@ -5,32 +5,29 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Play, Pause, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { Demo } from '@/types'
+import { APP_STORE_URL } from '@/components/AppStoreButton'
 
 const demos: Demo[] = [
   {
     id: 1,
-    title: 'Create Your Trip',
-    description: 'Start by adding your destination, dates, and trip type. PacBag automatically suggests relevant categories.',
-    image: '/demo-1.jpg'
+    title: 'Start a trip',
+    description: 'Give it a name, a destination and the dates you are away. Then add the bags you are taking.',
   },
   {
     id: 2,
-    title: 'Smart Suggestions',
-    description: 'Our AI analyzes weather, activities, and your preferences to suggest personalized packing items.',
-    image: '/demo-2.jpg'
+    title: 'Pick a list to start from',
+    description: 'Eight lists come with the app. Each one drops in a set of items with sensible quantities, and you edit from there.',
   },
   {
     id: 3,
-    title: 'Organize & Check',
-    description: 'Organize items by category, add custom items, and check off packed items with satisfying animations.',
-    image: '/demo-3.jpg'
+    title: 'Pack and check off',
+    description: 'Tick items as they go in. Each one carries a weight and a quantity, so the bag total moves as you pack.',
   },
   {
     id: 4,
-    title: 'Share & Sync',
-    description: 'Share lists with travel companions and sync across all your devices seamlessly.',
-    image: '/demo-4.jpg'
-  }
+    title: 'Send it to someone',
+    description: 'Export a trip or a single bag as plain text, Markdown or rich text. Everything syncs to your iPad through iCloud.',
+  },
 ]
 
 const ProductDemo: React.FC = () => {
@@ -51,13 +48,8 @@ const ProductDemo: React.FC = () => {
     return () => clearInterval(interval)
   }, [isPlaying, inView])
 
-  const nextDemo = () => {
-    setCurrentDemo((prev) => (prev + 1) % demos.length)
-  }
-
-  const prevDemo = () => {
-    setCurrentDemo((prev) => (prev - 1 + demos.length) % demos.length)
-  }
+  const nextDemo = () => setCurrentDemo((prev) => (prev + 1) % demos.length)
+  const prevDemo = () => setCurrentDemo((prev) => (prev - 1 + demos.length) % demos.length)
 
   return (
     <section id="demo" className="py-32 bg-gradient-to-b from-black to-purple-900/10">
@@ -69,26 +61,12 @@ const ProductDemo: React.FC = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <motion.div
-            className="inline-flex items-center space-x-2 bg-pink-500/10 border border-pink-500/20 rounded-full px-4 py-2 mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Play className="w-4 h-4 text-pink-400" />
-            <span className="text-sm text-pink-300">Interactive Demo</span>
-          </motion.div>
-
           <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            See PacBag
-            <br />
-            <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-              in action
-            </span>
+            How it works
           </h2>
-          
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Experience the intuitive workflow that makes packing effortless, from trip planning to final checklist.
+
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Four steps, from an empty trip to a packed bag.
           </p>
         </motion.div>
 
@@ -96,16 +74,14 @@ const ProductDemo: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Phone Mockup */}
             <motion.div
-              className="relative max-w-sm mx-auto"
+              className="relative w-full max-w-sm mx-auto"
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <div className="relative">
-                {/* Phone Frame */}
                 <div className="bg-gradient-to-b from-gray-800 to-gray-900 rounded-[3rem] p-3 shadow-2xl">
                   <div className="bg-black rounded-[2.5rem] overflow-hidden">
-                    {/* Screen Content */}
                     <div className="aspect-[9/19.5] bg-gradient-to-b from-purple-900/30 to-black relative">
                       <AnimatePresence mode="wait">
                         <motion.div
@@ -126,23 +102,22 @@ const ProductDemo: React.FC = () => {
                             </div>
                           </div>
 
-                          {/* Demo Content */}
                           <div className="text-white h-full flex flex-col">
                             {currentDemo === 0 && (
                               <div className="space-y-6">
                                 <h3 className="text-2xl font-bold">New Trip</h3>
                                 <div className="space-y-4">
                                   <div className="bg-white/10 rounded-xl p-4">
-                                    <label className="text-sm text-gray-300">Destination</label>
+                                    <span className="text-sm text-gray-300">Name</span>
+                                    <div className="text-lg font-medium">Tokyo, March</div>
+                                  </div>
+                                  <div className="bg-white/10 rounded-xl p-4">
+                                    <span className="text-sm text-gray-300">Destination</span>
                                     <div className="text-lg font-medium">Tokyo, Japan</div>
                                   </div>
                                   <div className="bg-white/10 rounded-xl p-4">
-                                    <label className="text-sm text-gray-300">Duration</label>
-                                    <div className="text-lg font-medium">5 days</div>
-                                  </div>
-                                  <div className="bg-white/10 rounded-xl p-4">
-                                    <label className="text-sm text-gray-300">Trip Type</label>
-                                    <div className="text-lg font-medium">Business</div>
+                                    <span className="text-sm text-gray-300">Dates</span>
+                                    <div className="text-lg font-medium">14 – 19 March</div>
                                   </div>
                                 </div>
                               </div>
@@ -150,17 +125,23 @@ const ProductDemo: React.FC = () => {
 
                             {currentDemo === 1 && (
                               <div className="space-y-6">
-                                <h3 className="text-xl font-bold">AI Suggestions</h3>
+                                <h3 className="text-xl font-bold">Templates</h3>
                                 <div className="space-y-3">
-                                  {['🌡️ Weather: 15-22°C', '☔ Rain expected', '👔 Business attire', '🔌 Universal adapter'].map((item, i) => (
+                                  {[
+                                    { name: 'Business Week', sub: '5–7 days, meetings' },
+                                    { name: 'Beach Vacation', sub: 'Sun and swimming' },
+                                    { name: 'City Break', sub: 'A long weekend' },
+                                    { name: 'Camping Adventure', sub: 'Tent and trail' },
+                                  ].map((t, i) => (
                                     <motion.div
-                                      key={i}
+                                      key={t.name}
                                       className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg p-3 border border-purple-400/30"
                                       initial={{ opacity: 0, x: -20 }}
                                       animate={{ opacity: 1, x: 0 }}
                                       transition={{ delay: i * 0.1 }}
                                     >
-                                      <span className="text-sm">{item}</span>
+                                      <div className="text-sm font-medium">{t.name}</div>
+                                      <div className="text-xs text-gray-400">{t.sub}</div>
                                     </motion.div>
                                   ))}
                                 </div>
@@ -168,22 +149,34 @@ const ProductDemo: React.FC = () => {
                             )}
 
                             {currentDemo === 2 && (
-                              <div className="space-y-6">
-                                <h3 className="text-xl font-bold">Packing List</h3>
-                                <div className="space-y-3">
-                                  {['👔 Business suits (3)', '👞 Dress shoes', '☂️ Umbrella', '💻 Laptop'].map((item, i) => (
+                              <div className="space-y-4">
+                                <div>
+                                  <h3 className="text-xl font-bold">Carry-on</h3>
+                                  <p className="text-sm text-gray-400">6.4 of 8.0 kg</p>
+                                </div>
+                                <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                  <motion.div
+                                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500"
+                                    initial={{ width: 0 }}
+                                    animate={{ width: '80%' }}
+                                    transition={{ duration: 0.8, delay: 0.3 }}
+                                  />
+                                </div>
+                                <div className="space-y-3 pt-2">
+                                  {[
+                                    { name: 'Dress shirts', meta: '×2 · 0.6 kg' },
+                                    { name: 'Laptop', meta: '×1 · 2.0 kg' },
+                                    { name: 'Chargers', meta: '×1 · 0.5 kg' },
+                                    { name: 'Toiletries kit', meta: '×1 · 0.8 kg' },
+                                  ].map((item, i) => (
                                     <motion.div
-                                      key={i}
+                                      key={item.name}
                                       className="flex items-center space-x-3 bg-white/10 rounded-lg p-3"
                                       initial={{ opacity: 0, scale: 0.8 }}
                                       animate={{ opacity: 1, scale: 1 }}
                                       transition={{ delay: i * 0.1 }}
                                     >
-                                      <motion.div
-                                        className="w-6 h-6 border-2 border-green-400 rounded bg-green-400/20"
-                                        whileHover={{ scale: 1.1 }}
-                                        whileTap={{ scale: 0.9 }}
-                                      >
+                                      <div className="w-6 h-6 border-2 border-green-400 rounded bg-green-400/20 flex-shrink-0">
                                         <motion.div
                                           className="w-full h-full flex items-center justify-center text-green-400 text-xs"
                                           initial={{ opacity: 0 }}
@@ -192,8 +185,11 @@ const ProductDemo: React.FC = () => {
                                         >
                                           ✓
                                         </motion.div>
-                                      </motion.div>
-                                      <span className="text-sm">{item}</span>
+                                      </div>
+                                      <div className="min-w-0">
+                                        <div className="text-sm truncate">{item.name}</div>
+                                        <div className="text-xs text-gray-400">{item.meta}</div>
+                                      </div>
                                     </motion.div>
                                   ))}
                                 </div>
@@ -202,25 +198,24 @@ const ProductDemo: React.FC = () => {
 
                             {currentDemo === 3 && (
                               <div className="space-y-6">
-                                <h3 className="text-xl font-bold">Share & Sync</h3>
-                                <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-4 border border-blue-400/30">
-                                  <div className="flex items-center space-x-3 mb-3">
-                                    <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
-                                    <span className="text-sm">Shared with team</span>
-                                  </div>
-                                  <div className="text-xs text-gray-300">
-                                    All devices synced ✓
-                                  </div>
+                                <h3 className="text-xl font-bold">Export</h3>
+                                <div className="space-y-3">
+                                  {['Plain Text', 'Markdown', 'Rich Text'].map((format, i) => (
+                                    <motion.div
+                                      key={format}
+                                      className="bg-white/10 rounded-lg p-3 text-sm"
+                                      initial={{ opacity: 0, x: -20 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{ delay: i * 0.1 }}
+                                    >
+                                      {format}
+                                    </motion.div>
+                                  ))}
                                 </div>
-                                <div className="flex space-x-2">
-                                  <div className="w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-600 rounded-xl flex items-center justify-center">
-                                    📱
-                                  </div>
-                                  <div className="w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-600 rounded-xl flex items-center justify-center">
-                                    💻
-                                  </div>
-                                  <div className="w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-600 rounded-xl flex items-center justify-center">
-                                    ⌚
+                                <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-4 border border-blue-400/30">
+                                  <div className="text-sm mb-1">iCloud</div>
+                                  <div className="text-xs text-gray-300">
+                                    iPhone and iPad up to date
                                   </div>
                                 </div>
                               </div>
@@ -231,22 +226,6 @@ const ProductDemo: React.FC = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Floating Animation */}
-                <motion.div
-                  className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg"
-                  animate={{ 
-                    y: [-5, 5, -5],
-                    rotate: [0, 180, 360]
-                  }}
-                  transition={{ 
-                    repeat: Infinity, 
-                    duration: 3,
-                    ease: "easeInOut"
-                  }}
-                >
-                  ✨
-                </motion.div>
               </div>
             </motion.div>
 
@@ -264,21 +243,25 @@ const ProductDemo: React.FC = () => {
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={prevDemo}
+                    aria-label="Previous step"
                     className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
                   >
                     <ChevronLeft className="w-5 h-5 text-white" />
                   </button>
                   <button
                     onClick={() => setIsPlaying(!isPlaying)}
+                    aria-label={isPlaying ? 'Pause' : 'Play'}
                     className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
                   >
-                    {isPlaying ? 
-                      <Pause className="w-5 h-5 text-white" /> : 
+                    {isPlaying ? (
+                      <Pause className="w-5 h-5 text-white" />
+                    ) : (
                       <Play className="w-5 h-5 text-white" />
-                    }
+                    )}
                   </button>
                   <button
                     onClick={nextDemo}
+                    aria-label="Next step"
                     className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
                   >
                     <ChevronRight className="w-5 h-5 text-white" />
@@ -303,28 +286,31 @@ const ProductDemo: React.FC = () => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Progress Dots */}
               <div className="flex space-x-3">
-                {demos.map((_, index) => (
+                {demos.map((demo, index) => (
                   <button
-                    key={index}
+                    key={demo.id}
                     onClick={() => setCurrentDemo(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    aria-label={`Go to step ${index + 1}`}
+                    className={`h-3 rounded-full transition-all duration-300 ${
                       index === currentDemo
                         ? 'bg-gradient-to-r from-purple-500 to-pink-500 w-8'
-                        : 'bg-white/30 hover:bg-white/50'
+                        : 'bg-white/30 hover:bg-white/50 w-3'
                     }`}
                   />
                 ))}
               </div>
 
-              <motion.button
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-2xl shadow-purple-500/25"
+              <motion.a
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-2xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-2xl shadow-purple-500/25"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Try It Yourself
-              </motion.button>
+                Get it on the App Store
+              </motion.a>
             </motion.div>
           </div>
         </div>

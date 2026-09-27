@@ -1,7 +1,7 @@
 {
-  "name": "PacBag - Smart Travel Packing Lists",
+  "name": "PacBag - Travel Packing Lists for iOS",
   "short_name": "PacBag",
-  "description": "The digital twin of your travel luggage - track every item and never leave anything behind",
+  "description": "A packing list app for iPhone and iPad. List your bags, put items in them, and check them off as you pack.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
@@ -10,23 +10,18 @@
   "icons": [
     {
       "src": "/icon-raw.png",
-      "sizes": "192x192",
+      "sizes": "768x768",
       "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-raw.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
-  "categories": ["travel", "productivity", "lifestyle"],
+  "categories": ["travel", "productivity"],
   "prefer_related_applications": true,
   "related_applications": [
     {
       "platform": "itunes",
-      "url": "https://apps.apple.com/app/pacbag"
+      "url": "https://apps.apple.com/br/app/pacbag-digital-luggage/id6749021887",
+      "id": "6749021887"
     }
   ]
 }

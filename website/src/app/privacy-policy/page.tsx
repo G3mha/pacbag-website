@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
         
         <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
           <div className="text-sm text-gray-500 mb-6">
-            Last Updated: July 2025
+            Last Updated: November 2026
           </div>
 
           {/* Key Points Section */}
@@ -74,7 +74,7 @@ export default function PrivacyPolicyPage() {
               <h4 className="font-medium text-gray-900 mb-2">iCloud Storage (CloudKit)</h4>
               <ul className="space-y-2 text-gray-600 mb-4">
                 <li>• All trips, bags, items, and packing lists are stored in your personal iCloud container</li>
-                <li>• Data syncs automatically between your devices signed into the same iCloud account</li>
+                <li>• Data is set to sync between your devices signed into the same iCloud account</li>
                 <li>• Only you can access your data through your Apple ID</li>
                 <li>• We cannot see, access, or retrieve any of your information</li>
               </ul>
@@ -91,10 +91,9 @@ export default function PrivacyPolicyPage() {
             <div className="border-l-4 border-purple-500 pl-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">3. Photos and Media</h3>
               <ul className="space-y-2 text-gray-600">
-                <li>• Photos are stored in your iCloud Photo Library</li>
+                <li>• Photos you add are copied into the item and stored with your PacBag data, which is set to sync through your own iCloud account</li>
                 <li>• The app only accesses photos you explicitly select</li>
-                <li>• Photo access requires your explicit permission</li>
-                <li>• You can revoke photo access anytime in iOS Settings</li>
+                <li>• PacBag uses Apple&apos;s photo picker, so it only sees photos you pick</li>
               </ul>
             </div>
 
@@ -127,7 +126,7 @@ export default function PrivacyPolicyPage() {
               <p className="text-gray-600 mb-2">You have complete control:</p>
               <ul className="space-y-2 text-gray-600">
                 <li>• Delete individual items, bags, or trips at any time</li>
-                <li>• Use &quot;Reset App&quot; in settings to delete all data</li>
+                <li>• Use Reset All Data in Settings to delete trips, bags, items and categories. Custom templates stay. Deleting the app doesn&apos;t delete your iCloud copy</li>
                 <li>• Disable iCloud sync in your device&apos;s iCloud settings</li>
                 <li>• Deleting the app removes all local data</li>
               </ul>

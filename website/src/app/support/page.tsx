@@ -69,7 +69,7 @@ export default function SupportPage() {
                   Can I share my packing lists?
                 </summary>
                 <p className="mt-2 text-gray-600">
-                  Yes! Tap the share button on any trip or bag to export your packing list. You can share it via Messages, Email, or save it as a PDF.
+                  Yes! Tap the share button on any trip or bag to export your packing list as text, Markdown or rich text.
                 </p>
               </details>
               
@@ -120,25 +120,12 @@ export default function SupportPage() {
                 </a>
               </div>
             </div>
-            
-            <div className="flex items-start">
-              <svg className="w-6 h-6 text-blue-600 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <div>
-                <h4 className="font-medium text-gray-900">Response Time</h4>
-                <p className="text-gray-600">
-                  We typically respond within 24-48 hours during business days.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
 
         {/* App Info */}
         <div className="mt-12 text-center text-gray-500">
           <p>PacBag - Digital Luggage</p>
-          <p>Version 1.0</p>
         </div>
       </main>
     </div>

@@ -24,10 +24,10 @@ export default function LabelsMarkingsPage() {
         
         <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            Digital Services Act Compliance
+            Product information
           </h2>
           <p className="text-gray-600 mb-8">
-            This page provides product safety and compliance information for PacBag as required by European Union Digital Services Act (DSA) regulations.
+            This page lists product information for PacBag.
           </p>
           
           {/* App Information */}
@@ -38,7 +38,6 @@ export default function LabelsMarkingsPage() {
               </h3>
               <div className="space-y-2 text-gray-600">
                 <p><strong>App Name:</strong> PacBag - Digital Luggage</p>
-                <p><strong>Version:</strong> 1.0</p>
                 <p><strong>Developer:</strong> Enricco Gemha</p>
                 <p><strong>Category:</strong> Travel & Productivity</p>
                 <p><strong>Age Rating:</strong> 4+ (Suitable for all ages)</p>
@@ -72,18 +71,6 @@ export default function LabelsMarkingsPage() {
                     Privacy Policy
                   </Link>.
                 </p>
-              </div>
-            </div>
-
-            <div className="border-l-4 border-orange-500 pl-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                Compliance Status
-              </h3>
-              <div className="space-y-3 text-gray-600">
-                <p>✅ <strong>EU DSA Compliant:</strong> This app complies with Digital Services Act requirements.</p>
-                <p>✅ <strong>GDPR Compliant:</strong> No personal data collection ensures GDPR compliance.</p>
-                <p>✅ <strong>App Store Guidelines:</strong> Meets all Apple App Store Review Guidelines.</p>
-                <p>✅ <strong>Accessibility:</strong> Built with iOS accessibility features and VoiceOver support.</p>
               </div>
             </div>
 
@@ -152,8 +139,8 @@ export default function LabelsMarkingsPage() {
 
         {/* Footer */}
         <div className="mt-12 text-center text-gray-500">
-          <p>Last Updated: July 2025</p>
-          <p>PacBag - Digital Luggage v1.0</p>
+          <p>Last updated: November 2026</p>
+          <p>PacBag - Digital Luggage</p>
           <p>Developed by Enricco Gemha</p>
         </div>
       </main>

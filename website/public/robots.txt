@@ -1,7 +1,6 @@
 # robots.txt for PacBag
 User-agent: *
 Allow: /
-Disallow: /api/
 Disallow: /_next/
 Allow: /_next/static/
 Allow: /_next/image/

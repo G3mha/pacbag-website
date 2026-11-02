@@ -29,13 +29,13 @@ const faqs: FAQType[] = [
     id: 4,
     question: 'How does syncing work?',
     answer:
-      'Through CloudKit, using the Apple ID you are already signed in to. Any device on the same Apple ID picks up your trips. Sync is not instant — give it a moment after a change.',
+      "Through CloudKit, using the Apple ID you are already signed in to. Any device on the same Apple ID picks up your trips. Sync isn't instant, so give it a moment after a change.",
   },
   {
     id: 5,
     question: 'Can I share a list with someone?',
     answer:
-      'You can export a trip or a single bag as plain text, Markdown or rich text, then send it however you like. It is a copy, not a shared document — the other person cannot edit yours, and there is no collaborative list.',
+      "You can export a trip or a single bag as plain text, Markdown or rich text, then send it however you like. The other person gets a copy. They can't edit yours, and there's no shared list.",
   },
   {
     id: 6,

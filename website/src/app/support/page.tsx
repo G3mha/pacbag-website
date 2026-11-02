@@ -88,7 +88,7 @@ export default function SupportPage() {
                 </summary>
                 <p className="mt-2 text-gray-600">
                   Absolutely! All your data is stored privately in your iCloud account. We don&apos;t have access to any of your information. Read our{' '}
-                  <Link href="/privacy-policy.html" className="text-blue-600 hover:underline">
+                  <Link href="/privacy" className="text-blue-600 hover:underline">
                     Privacy Policy
                   </Link>{' '}
                   for details.

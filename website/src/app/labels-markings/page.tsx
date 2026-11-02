@@ -68,7 +68,7 @@ export default function LabelsMarkingsPage() {
                 <p>📱 <strong>Local Storage:</strong> App data remains on your devices and iCloud account only.</p>
                 <p>
                   For detailed privacy information, see our{' '}
-                  <Link href="/privacy-policy.html" className="text-blue-600 hover:underline">
+                  <Link href="/privacy" className="text-blue-600 hover:underline">
                     Privacy Policy
                   </Link>.
                 </p>

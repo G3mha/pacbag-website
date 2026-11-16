@@ -21,6 +21,7 @@ export default function PrivacyPage() {
           <li>AI estimates are off until you turn them on</li>
           <li>When they&apos;re on, the item names you type and the photos you choose go to our server and to Anthropic</li>
           <li>You can turn them off any time in Settings</li>
+          <li>To show a photo of where you&apos;re going, the app sends a trip&apos;s destination to Wikipedia</li>
         </ul>
       </LegalSection>
 
@@ -66,6 +67,7 @@ export default function PrivacyPage() {
           <li>The app only accesses photos you explicitly select</li>
           <li>PacBag uses Apple&apos;s photo picker, so it only sees photos you pick</li>
           <li>A photo leaves your device only if AI estimates are on and you choose it to fill in an item</li>
+          <li>A photo you add to a trip stays with the trip in your iCloud</li>
         </ul>
       </LegalSection>
 
@@ -110,10 +112,15 @@ export default function PrivacyPage() {
           <li>Anthropic (AI provider): item names, category names, chosen photos and your language, to generate estimates. Anthropic may keep them for up to 30 days</li>
           <li>Railway (hosts our server): your IP address and the time of each request, in logs we can read for up to 30 days</li>
         </ul>
+        <p>Whether AI estimates are on or off, the app asks Wikipedia for a photo of each trip&apos;s destination:</p>
+        <ul>
+          <li>Wikimedia Foundation (runs Wikipedia): the destination you typed or picked, your IP address and the time, when you open a trip that has no photo of your own. Wikimedia keeps them under its own privacy policy</li>
+        </ul>
         <p>The app also uses Apple&apos;s frameworks, and your data is set to sync through iCloud:</p>
         <ul>
           <li>CloudKit for data sync</li>
           <li>PhotosUI for image selection</li>
+          <li>MapKit to suggest cities as you type a destination, which sends what you type to Apple</li>
           <li>UserNotifications for local reminders</li>
           <li>StoreKit for the App Store record described in section 1</li>
         </ul>
